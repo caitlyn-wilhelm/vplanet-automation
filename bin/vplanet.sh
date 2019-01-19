@@ -1,0 +1,85 @@
+#!/usr/bin/bash
+#---------------------------------------------------
+
+#set -xv
+
+#---------------------------------------------------
+clear
+
+#---------------------------------------------------
+# Set project working directory
+
+cd ~/PreMAP2016/Project
+
+#---------------------------------------------------
+#runs Vplanet function
+
+source ~/code_stuff/get_vspace.sh
+
+~/code_stuff/fsp_checker.sh $DESTFOLDER $NUM
+
+#---------------------------------------------------
+# if vplanet has ran completely
+
+if [[ $? -eq 0 ]]
+then
+	read -p "It looks like Vplanet has been run for $DESTFOLDER. Do you want to override it? [y/n]" answer 
+	while true
+		do
+		case $answer in
+      		[yY] )
+	    		echo "Get ready to do simulations!"
+	    		echo "Running vplanet..."
+	     		nohup ~/code_stuff/run_vplanet.py $DESTFOLDER True &> $DESTFOLDER.out &
+	     		wait
+	       		break;;
+
+			[nN] ) 
+				exit;;
+				
+			* )     
+				echo "Enter Y or N, please."
+				break;;
+      		esac
+  	done
+
+#---------------------------------------------------
+# if vplanet has not been run at all or did not finish
+else
+	echo "Get ready to do simulations!"
+	echo "Running vplanet..."
+	nohup ~/code_stuff/run_vplanet.py $DESTFOLDER &> $DESTFOLDER.out &
+	wait
+fi
+
+
+~/code_stuff/fixer.sh $DESTFOLDER f
+
+echo ""
+echo "Everything is done!"
+echo ""
+
+#---------------------------------------------------
+# Checks to see if vplanet actually fucking ran
+~/code_stuff/fsp_checker.sh $DESTFOLDER $NUM
+
+#---------------------------------------------------
+# if vplanet has NOT ran completely
+
+if [[ $? -eq 1 ]]
+then
+    nohup ~/code_stuff/run_vplanet.py $DESTFOLDER &> $DESTFOLDER.out &
+    wait
+fi
+
+echo ""
+echo "deleting output file..."
+echo ""
+rm $DESTFOLDER.out
+
+mail -s " Coding Process has finished for $DESTFOLDER" cwilhelm@uw.edu <<< "Please log into the Astrolab and make the plot since the code you wrote sucks and its still broken (AKA please fix the code ASAP so you actually get the plots instead of doing this manually every time)"
+#echo "Starting Contourplot Process"
+#source ~/code_stuff/contour_plots.sh
+
+#--------------------------------------------------
+
