@@ -28,6 +28,7 @@ then
     exit
 fi
 
+
 cd ~/Projects/IceBelt/contour_plots/lists/
 if [[ ! -e list_$DESTFOLDER ]]
 then
