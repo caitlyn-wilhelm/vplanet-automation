@@ -9,7 +9,7 @@ clear
 #---------------------------------------------------
 # Set project working directory
 
-cd ~/PreMAP2016/Project
+cd /astro/store/faculty1/rkb9/cwilhelm/PreMAP2016/Project
 
 #---------------------------------------------------
 source ~/code_stuff/get_vspace.sh
@@ -28,7 +28,7 @@ then
     exit
 fi
 
-cd contourplot/lists
+cd ~/Project/IceBelts/contourplot/lists
 if [[ ! -e list_$DESTFOLDER ]]
 then
     clear
@@ -38,9 +38,7 @@ then
     exit
 fi
 
-cd ~/PreMAP2016/Project
+cd /astro/store/faculty1/rkb9/cwilhelm/PreMAP2016/Project
 
 tar -zcf $DESTFOLDER.tar.gz
 rm -r $DESTFOLDER
-	
-
