@@ -41,5 +41,5 @@ fi
 
 cd /astro/store/faculty1/rkb9/cwilhelm/PreMAP2016/Project
 
-tar -zcf $DESTFOLDER.tar.gz
+tar -zcf $DESTFOLDER.tar.gz $DESTFOLDER
 #rm -r $DESTFOLDER
