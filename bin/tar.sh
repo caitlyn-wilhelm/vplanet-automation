@@ -28,7 +28,7 @@ then
     exit
 fi
 
-cd ~/Project/IceBelts/contourplot/lists
+cd ~/Projects/IceBelt/contour_plots/lists/
 if [[ ! -e list_$DESTFOLDER ]]
 then
     clear
@@ -41,4 +41,4 @@ fi
 cd /astro/store/faculty1/rkb9/cwilhelm/PreMAP2016/Project
 
 tar -zcf $DESTFOLDER.tar.gz
-rm -r $DESTFOLDER
+#rm -r $DESTFOLDER
