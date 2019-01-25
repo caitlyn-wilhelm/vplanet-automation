@@ -45,6 +45,6 @@ fi
 # After vspace is done,it continues to do the Vplanet.sh code
 
 echo "Starting Vplanet Process"
-source vplanet-automation/bin/vplanet.sh
+source ~/vplanet-automation/bin/vplanet.sh
 
 #--------------------------------------------------
