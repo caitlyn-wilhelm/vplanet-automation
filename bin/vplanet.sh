@@ -9,21 +9,21 @@ clear
 #---------------------------------------------------
 # Set project working directory
 
-cd ~/PreMAP2016/Project
+cd ~/Projects/IceBelt
 
 #---------------------------------------------------
 #runs Vplanet function
 
-source ~/code_stuff/get_vspace.sh
+source vplanet-automation/bin/get_vspace.sh
 
-~/code_stuff/fsp_checker.sh $DESTFOLDER $NUM
+vplanet-automation/bin/fsp_checker.sh $DESTFOLDER $NUM
 
 #---------------------------------------------------
 # if vplanet has ran completely
 
 if [[ $? -eq 0 ]]
 then
-	read -p "It looks like Vplanet has been run for $DESTFOLDER. Do you want to override it? [y/n]" answer 
+	read -p "It looks like Vplanet has been run for $DESTFOLDER. Do you want to override it? [y/n]" answer
 	while true
 		do
 		case $answer in
@@ -34,10 +34,10 @@ then
 	     		wait
 	       		break;;
 
-			[nN] ) 
+			[nN] )
 				exit;;
-				
-			* )     
+
+			* )
 				echo "Enter Y or N, please."
 				break;;
       		esac
@@ -48,27 +48,27 @@ then
 else
 	echo "Get ready to do simulations!"
 	echo "Running vplanet..."
-	nohup ~/code_stuff/run_vplanet.py $DESTFOLDER &> $DESTFOLDER.out &
+	nohup vplanet-automation/bin/run_vplanet.py $DESTFOLDER &> $DESTFOLDER.out &
 	wait
 fi
 
 
-~/code_stuff/fixer.sh $DESTFOLDER f
+vplanet-automation/bin/fixer.sh $DESTFOLDER f
 
 echo ""
 echo "Everything is done!"
 echo ""
 
 #---------------------------------------------------
-# Checks to see if vplanet actually fucking ran
-~/code_stuff/fsp_checker.sh $DESTFOLDER $NUM
+# Checks to see if vplanet actually ran
+vplanet-automation/bin/fsp_checker.sh $DESTFOLDER $NUM
 
 #---------------------------------------------------
 # if vplanet has NOT ran completely
 
 if [[ $? -eq 1 ]]
 then
-    nohup ~/code_stuff/run_vplanet.py $DESTFOLDER &> $DESTFOLDER.out &
+    nohup vplanet-automation/bin/run_vplanet.py $DESTFOLDER &> $DESTFOLDER.out &
     wait
 fi
 
@@ -82,4 +82,3 @@ mail -s " Coding Process has finished for $DESTFOLDER" cwilhelm@uw.edu <<< "Plea
 #source ~/code_stuff/contour_plots.sh
 
 #--------------------------------------------------
-

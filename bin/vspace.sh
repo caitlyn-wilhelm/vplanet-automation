@@ -9,12 +9,10 @@ clear
 #---------------------------------------------------
 # Set project working directory
 
-cd ~/PreMAP2016/Project
-
-# cd /astro/users/cwilhelm/code_stuff
+cd ~/Projects/IceBelt
 
 #---------------------------------------------------
-source ~/code_stuff/get_vspace.sh
+source vplanet-automation/bin/get_vspace.sh
 
 #----------------------------------------------------
 # Checks if the destination folder already exists, and if it does asks if user wants to override it
@@ -47,7 +45,6 @@ fi
 # After vspace is done,it continues to do the Vplanet.sh code
 
 echo "Starting Vplanet Process"
-source ~/code_stuff/vplanet.sh
-     
+source vplanet-automation/bin/vplanet.sh
+
 #--------------------------------------------------
-             				

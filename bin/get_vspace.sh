@@ -13,11 +13,9 @@ fi
 
 #---------------------------------------------------
 # Check to see if file exists
-cd ~/Projects/IceBelt/vspace_files/G_Star
 if [[ -e $VSPACE_FILE ]]
 then
 	echo "VSPACE_FILE : $VSPACE_FILE"
-	#ls -l $VSPACE_FILE
     SEMI=$(grep ^dSemi $VSPACE_FILE)
     LUM=$(grep ^dLuminosity $VSPACE_FILE)
 

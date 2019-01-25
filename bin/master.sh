@@ -17,15 +17,10 @@ PURPLE='\e[1;35m'
 #---------------------------------------------------
 # Set project working directory
 
-cd ~/PreMAP2016/Project
+cd ~/Project
 
 #---------------------------------------------------
-# Main menu display 
-
-echo -e "$PURPLE"
-cat ~/code_stuff/ascii_art/welcome.txt
-
-# cat ./ascii_art/you_are_here.txt
+# Main menu display
 
 echo "Choose one of the options below to start the automation process"
 
@@ -42,23 +37,22 @@ do
     case $answer in
     [Ss])
         echo "Starting Vspace Process..."
-        source ~/code_stuff/vspace.sh
+        source vplanet-automation/bin/vspace.sh
         break;;
 
      [Pp])
         echo "Starting Vplanet Process..."
-        source ~/code_stuff/vplanet.sh
+        source vplanet-automation/bin/vplanet.sh
         break;;
 
      [Cc])
         echo "Starting Contour Plot Creation..."
-        source ~/code_stuff/contour_plots.sh
+        source vplanet-automation/bin/contour_plots.sh
         break;;
 
-     * )     
+     * )
         echo "Exiting"; break ;;
     esac
 done
 
 #--------------------------------------------------
-
