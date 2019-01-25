@@ -48,12 +48,12 @@ then
 else
 	echo "Get ready to do simulations!"
 	echo "Running vplanet..."
-	nohup vplanet-automation/bin/run_vplanet.py $DESTFOLDER &> $DESTFOLDER.out &
+	nohup ~/vplanet-automation/bin/run_vplanet.py $DESTFOLDER &> $DESTFOLDER.out &
 	wait
 fi
 
 
-vplanet-automation/bin/fixer.sh $DESTFOLDER f
+~/vplanet-automation/bin/fixer.sh $DESTFOLDER f
 
 echo ""
 echo "Everything is done!"
