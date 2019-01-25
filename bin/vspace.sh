@@ -12,7 +12,7 @@ clear
 cd ~/Projects/IceBelt
 
 #---------------------------------------------------
-source vplanet-automation/bin/get_vspace.sh
+source ~/vplanet-automation/bin/get_vspace.sh
 
 #----------------------------------------------------
 # Checks if the destination folder already exists, and if it does asks if user wants to override it

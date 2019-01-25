@@ -14,7 +14,7 @@ cd ~/Projects/IceBelt
 #---------------------------------------------------
 #runs Vplanet function
 
-source vplanet-automation/bin/get_vspace.sh
+source ~/vplanet-automation/bin/get_vspace.sh
 
 vplanet-automation/bin/fsp_checker.sh $DESTFOLDER $NUM
 
@@ -30,7 +30,7 @@ then
       		[yY] )
 	    		echo "Get ready to do simulations!"
 	    		echo "Running vplanet..."
-	     		nohup ~/code_stuff/run_vplanet.py $DESTFOLDER True &> $DESTFOLDER.out &
+	     		nohup ~/vplanet-automation/bin/run_vplanet.py $DESTFOLDER True &> $DESTFOLDER.out &
 	     		wait
 	       		break;;
 
@@ -61,14 +61,14 @@ echo ""
 
 #---------------------------------------------------
 # Checks to see if vplanet actually ran
-vplanet-automation/bin/fsp_checker.sh $DESTFOLDER $NUM
+~/vplanet-automation/bin/fsp_checker.sh $DESTFOLDER $NUM
 
 #---------------------------------------------------
 # if vplanet has NOT ran completely
 
 if [[ $? -eq 1 ]]
 then
-    nohup vplanet-automation/bin/run_vplanet.py $DESTFOLDER &> $DESTFOLDER.out &
+    nohup ~/vplanet-automation/bin/run_vplanet.py $DESTFOLDER &> $DESTFOLDER.out &
     wait
 fi
 
