@@ -16,7 +16,7 @@ cd ~/Projects/IceBelt
 
 source ~/vplanet-automation/bin/get_vspace.sh
 
-vplanet-automation/bin/fsp_checker.sh $DESTFOLDER $NUM
+~/vplanet-automation/bin/fsp_checker.sh $DESTFOLDER $NUM
 
 #---------------------------------------------------
 # if vplanet has ran completely
