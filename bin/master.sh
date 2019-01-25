@@ -37,17 +37,17 @@ do
     case $answer in
     [Ss])
         echo "Starting Vspace Process..."
-        source vplanet-automation/bin/vspace.sh
+        source ~/vplanet-automation/bin/vspace.sh
         break;;
 
      [Pp])
         echo "Starting Vplanet Process..."
-        source vplanet-automation/bin/vplanet.sh
+        source ~/vplanet-automation/bin/vplanet.sh
         break;;
 
      [Cc])
         echo "Starting Contour Plot Creation..."
-        source vplanet-automation/bin/contour_plots.sh
+        source ~/vplanet-automation/bin/contour_plots.sh
         break;;
 
      * )
