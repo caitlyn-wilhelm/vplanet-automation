@@ -10,3 +10,6 @@ cwilhelm\
 
     vplanet-automation\
         bin\
+            vplanet.sh
+            get_vspace.sh
+            etc.

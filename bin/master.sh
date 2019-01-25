@@ -17,7 +17,7 @@ PURPLE='\e[1;35m'
 #---------------------------------------------------
 # Set project working directory
 
-cd ~/Project
+cd ~/Projects/IceBelt
 
 #---------------------------------------------------
 # Main menu display
