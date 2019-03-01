@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 #---------------------------------------------------
-# Checks all tilted.log files to validate 
+# Checks all tilted.log files to validate
 # that 'FINAL SYSTEM PROPERTIES' exists.
 #---------------------------------------------------
 # Set Variables
@@ -19,7 +19,7 @@ do
     # Determine if 'FINAL SYETEM PROPERTIES' exists
     # in tilted,log file
     # '---FINAL SYSTEM PROPERTIES ----'
-    
+
     if grep "FINAL SYSTEM PROPERTIES" $tl_file >/dev/null
     then
         found=$(( found + 1 ))
@@ -42,9 +42,8 @@ echo
 if [[ $found == $total ]]
 then
     exit 0
-else 
+else
     exit 1
 fi
-   
-#---------------------------------------------------
 
+#---------------------------------------------------
