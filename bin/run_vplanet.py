@@ -3,7 +3,6 @@
 import subprocess as sub
 import pdb
 import os
-import climaplot as cpl
 import sys
 
 final = '---- FINAL SYSTEM PROPERTIES ----'
@@ -24,7 +23,7 @@ def run_vplanet(folder_name,rerun = False):
 	    		else:
 	        		sub.call("vplanet vpl.in", shell = True)
 		os.chdir("../../")
-		
+
 
 if (len(sys.argv) == 2):
 	run_vplanet(sys.argv[1])
