@@ -4,7 +4,7 @@
 # that 'FINAL SYSTEM PROPERTIES' exists.
 #---------------------------------------------------
 # Set Variables
-total=$(($2 * $2))
+total=$(($2 * $3))
 found=0
 missing=0
 
