@@ -41,7 +41,7 @@ then
 
 	NUM=$(grep ^dObliquity $VSPACE_FILE | tr -d '[]' | cut -f2 -d 'n' | awk '{print $1}')
 
-    DIM=$(grep -o $NUM $VSPACE_FILE | wc -l | awk '{print $3}' )
+    DIM=$(grep $NUM $VSPACE_FILE | wc -l | awk '{print $3}' )
 
     #---------------------------------------------------
 	# assigns name of subfolders to a variable
