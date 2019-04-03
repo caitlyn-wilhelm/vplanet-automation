@@ -16,41 +16,41 @@ cd ~/Projects/IceBelt
 
 source ~/vplanet-automation/bin/get_vspace.sh
 
-#~/vplanet-automation/bin/fsp_checker.sh $DESTFOLDER $NUM $DIM
+~/vplanet-automation/bin/fsp_checker.sh $DESTFOLDER $NUM $DIM
 
 #---------------------------------------------------
 # if vplanet has ran completely
 
-#if [[ $? -eq 0 ]]
-#then
-#	read -p "It looks like Vplanet has been run for $DESTFOLDER. Do you want to override it? [y/n]" answer
-#	while true
-#		do
-#		case $answer in
-#      		[yY] )
-#	    		echo "Get ready to do simulations!"
-#	    		echo "Running vplanet..."
-#	     		nohup ~/vplanet-automation/bin/run_vplanet.py $DESTFOLDER True &> $DESTFOLDER.out &
-#	     		wait
-#	       		break;;
-#
-#			[nN] )
-#				exit;;
+if [[ $? -eq 0 ]]
+then
+	read -p "It looks like Vplanet has been run for $DESTFOLDER. Do you want to override it? [y/n]" answer
+	while true
+		do
+		case $answer in
+      		[yY] )
+	    		echo "Get ready to do simulations!"
+	    		echo "Running vplanet..."
+	     		nohup ~/vplanet-automation/bin/run_vplanet.py $DESTFOLDER True &> $DESTFOLDER.out &
+	     		wait
+	       		break;;
 
-#			* )
-#				echo "Enter Y or N, please."
-#				break;;
-#      		esac
- # 	done
+			[nN] )
+				exit;;
+
+			* )
+				echo "Enter Y or N, please."
+				break;;
+      		esac
+  	done
 
 #---------------------------------------------------
 # if vplanet has not been run at all or did not finish
-#else
+else
 	echo "Get ready to do simulations!"
 	echo "Running vplanet..."
 	nohup ~/vplanet-automation/bin/run_vplanet.py $DESTFOLDER &> $DESTFOLDER.out &
 	wait
-#fi
+fi
 
 
 ~/vplanet-automation/bin/fixer.sh $DESTFOLDER f
