@@ -4,8 +4,6 @@
 #---------------------------------------------------
 # Checks if VSPACE_FILE has a file in it or not, if absent prompt for file.
 
-# cd /astro/users/cwilhelm/PreMAP2016/Project
-
 if [[ -z $VSPACE_FILE ]]
   then
     read -p "Enter vspace file: " VSPACE_FILE
@@ -39,7 +37,8 @@ then
     #---------------------------------------------------
 	# assigns the grid witdth/length to a variable
 
-	NUM=$(grep ^dObliquity $VSPACE_FILE | tr -d '[]' | cut -f2 -d 'n' | awk '{print $1}')
+	# NUM=$(grep "[*,*,*]" $VSPACE_FILE | tr -d '[]' | cut -f2 -d 'n' | awk '{print $1}')
+    NUM=$(grep "\[*,*,*\]" $VSPACE_FILE | tr -d '[]' | cut -f2 -d'n' | awk '{print $1}' | sort -u)
 
     DIM=$(grep n$NUM $VSPACE_FILE | wc -l | awk '{print $1}')
 
