@@ -77,6 +77,13 @@ echo "deleting output file..."
 echo ""
 rm $DESTFOLDER.out
 
+if [[ -e $(grep ^bForceObliq $VSPACE_FILE) ]]
+	then
+		awk '/^dObliqPer/ {print $2}' semi_oblamp*_per*/earth.in > dObliqPer.dat
+		awk '/^dObliqAmp/ {print $2}' semi_oblamp*_per*/earth.in > dObliqAmp.dat
+fi
+
+
 mail -s " Coding Process has finished for $DESTFOLDER" cwilhelm@uw.edu <<< "Please log into the Astrolab and make the plot since the code you wrote sucks and its still broken (AKA please fix the code ASAP so you actually get the plots instead of doing this manually every time)"
 #echo "Starting Contourplot Process"
 #source ~/code_stuff/contour_plots.sh
