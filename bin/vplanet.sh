@@ -72,11 +72,6 @@ then
     wait
 fi
 
-echo ""
-echo "deleting output file..."
-echo ""
-rm $DESTFOLDER.out
-
 if [[ -e $(grep ^bForceObliq $VSPACE_FILE) ]]
 	then
 		awk '/^dObliqPer/ {print $2}' semi_oblamp*_per*/earth.in > dObliqPer.dat
