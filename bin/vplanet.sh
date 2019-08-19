@@ -9,7 +9,7 @@ clear
 #---------------------------------------------------
 # Set project working directory
 
-cd ~/Projects/IceBelt
+cd $Proj_Dir
 
 #---------------------------------------------------
 #runs Vplanet function
@@ -76,6 +76,12 @@ if [[ -e $(grep ^bForceObliq $VSPACE_FILE) ]]
 	then
 		awk '/^dObliqPer/ {print $2}' semi_oblamp*_per*/earth.in > dObliqPer.dat
 		awk '/^dObliqAmp/ {print $2}' semi_oblamp*_per*/earth.in > dObliqAmp.dat
+fi
+
+if [[ -e $(grep ^bForceEcc $VSPACE_FILE) ]]
+	then
+		awk '/^dEccPer/ {print $2}' semi_oblamp*_per*/earth.in > dEccPer.dat
+		awk '/^dEccAmp/ {print $2}' semi_oblamp*_per*/earth.in > dEccAmp.dat
 fi
 
 

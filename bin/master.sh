@@ -17,7 +17,7 @@ PURPLE='\e[1;35m'
 #---------------------------------------------------
 # Set project working directory
 
-cd ~/Projects/IceBelt
+cd $Proj_Dir
 
 #---------------------------------------------------
 # Main menu display
@@ -25,9 +25,9 @@ cd ~/Projects/IceBelt
 echo "Choose one of the options below to start the automation process"
 
 echo ""
-echo -e "$GREEN[Ss] for Vspace set up"
-echo -e "$WHITE[Pp] for Running Vplanet"
-echo -e "$CYAN[Cc] for Contour Plot"
+echo -e "$GREEN[1] for Vspace set up"
+echo -e "$WHITE[2] for Running Vplanet"
+echo -e "$RED[3] for Setup options"
 echo -e "$NORMAL"
 
 read -p "Enter run option: " answer
@@ -35,19 +35,19 @@ read -p "Enter run option: " answer
 while true
 do
     case $answer in
-    [Ss])
+    [1])
         echo "Starting Vspace Process..."
         source ~/vplanet-automation/bin/vspace.sh
         break;;
 
-     [Pp])
+     [2])
         echo "Starting Vplanet Process..."
         source ~/vplanet-automation/bin/vplanet.sh
         break;;
 
-     [Cc])
-        echo "Starting Contour Plot Creation..."
-        source ~/vplanet-automation/bin/contour_plots.sh
+     [3])
+        echo "Starting Setup Process..."
+        source ~/vplanet-automation/bin/setup.sh
         break;;
 
      * )
