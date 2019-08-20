@@ -20,6 +20,7 @@ do
         echo "Changing Project Directory..."
         echo
         read -p "Enter new Project Directory: " PD
+        export PD=$Proj_Dir
         break;;
 
      #[2])
